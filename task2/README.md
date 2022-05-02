@@ -12,4 +12,4 @@
   2. Convert the 3D matrix index (i, j, k) to a suitable 1D vector index (y). Must be O(1)
 
 ### Matrix illustration with indices direction
-!(Image)[https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task2/matrix_illustration.jpg]
+![Image](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task2/matrix_illustration.jpg)
