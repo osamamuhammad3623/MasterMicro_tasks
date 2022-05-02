@@ -1,4 +1,4 @@
-# MasterMicro_task_1
+# MasterMicro task 1
 # Function Plotter using Qt and C++
 
 ## External Libraries used:
