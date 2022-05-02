@@ -14,7 +14,7 @@
 ### Matrix illustration with indices directions:
 ![Image](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task2/matrix_illustration.jpg)
 
-### How to store 3D matrix in a 1D vector:
+### How to store 3D matrix in a 1D vector (how my algorithm works):
 - Assume the matrix is a vector of 2D vectors, so I fill the first 2D vector, then the second 2D vector, so on
 - Each 2D vector is called Block, I named it :D .
 - so I fill first block, row-by-row till the end, then the second block, and so on.
