@@ -1,12 +1,16 @@
 # MasterMicro task 1
-# Matrix Flatten
+# Function Plotter using Qt and C++
 
-## 1. Problem Description
-- A 3D matrix is to be stored in a 1D vector (flattened).
-- The 3D matrix is of size n x m x p and is indexed by i, j, k.
-- The 1D vector is of size q and is indexed by y.
+## External Libraries used:
+1. QCustomPlot, used to diaply plots, Link: https://www.qcustomplot.com/
+2. TinyExpr, used to evaluate the user-input function, Link: https://github.com/codeplea/tinyexpr
 
-## 2. Requirements
-- Implement the following functions:
-  1. Create a 1D vector suitable for storing the 3D matrix.
-  2. Convert the 3D matrix index (i, j, k) to a suitable 1D vector index (y). Must be O(1)
+## Screenshots of Valid/Invalid examples:
+### Valid Examples
+![ex1](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/working_ex1.png)
+![ex2](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/working_ex2.png)
+![ex3](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/working_ex3.png)
+
+### Invalid Examples
+![ex1](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/wrong_ex1.png)
+![ex1](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/wrong_ex2.png)
