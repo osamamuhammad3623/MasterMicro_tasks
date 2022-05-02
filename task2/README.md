@@ -18,4 +18,5 @@
 - Assume the matrix is a vector of 2D vectors, so I fill the first 2D vector, then the second 2D vector, so on
 - Each 2D vector is called Block, I named it :D .
 - so I fill first block, row-by-row till the end, then the second block, and so on.
-- Then, index k, which indicates to Block (in my assumption), its offset in the 1D vector can be calculated by multiplying previous blocks by their size.
+- Then, index k, which indicates to Block (in my assumption), its offset in the 1D vector can be calculated by multiplying previous blocks by their size (k*n*m).
+- Within a block, the offset is calculated by previous rows by their size + the column offset (i*m +j)
