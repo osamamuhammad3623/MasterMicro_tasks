@@ -3,7 +3,7 @@
 
 ## External Libraries used:
 1. QCustomPlot, used to diaply plots, Link: https://www.qcustomplot.com/
-2. TinyExpr, used to evaluate the user-input function, Link: https://github.com/codeplea/tinyexpr
+2. TinyExpr, used to evaluate the mathematical expression string at every step of x (i.e. at x=0, x=0.1, etc..), Link: https://github.com/codeplea/tinyexpr
 
 ## Screenshots of Valid/Invalid examples:
 ### Valid Examples
