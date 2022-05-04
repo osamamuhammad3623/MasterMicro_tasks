@@ -20,8 +20,8 @@ MainWindow::~MainWindow()
 
 bool valid_equation(string &eq){
     for (char c : eq){
-        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c=='.'){
-            /* check if char is a valid operator */
+        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c=='.' || c == ' '){
+            /* check if char is a valid operator, or a dot for decimals */
         }else if (c >= '0' && c <= '9'){
             /* check if char is a valid digit */
         }else if (c == 'x'){
