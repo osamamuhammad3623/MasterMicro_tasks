@@ -7,7 +7,7 @@
 
 ## Screenshots of Valid/Invalid examples:
 ### Valid Examples
-![ex1](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/working_ex1.png)
+![ex1](sc/working_ex1.png)
 ![ex2](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/working_ex2.png)
 ![ex3](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task1/sc/working_ex3.png)
 
