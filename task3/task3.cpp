@@ -32,20 +32,37 @@ int access_one_dim_vector(int i, int j, int k, int n, int m, int p){
 
 int main(void){
     const int n=3, m= 3, p=2;
+    cout << "Suppose Block is a 2D vector.\nn= 3, m= 3, p= 2\n\n";
 
-    // sample matrix: n: 3, m: 3, p: 2
     vector<vector<vector<int>>> matrix = {
         {{1,2,3},{4,5,6},{7,8,9}}, // first "block"
         {{10,11,12},{13,14,15},{16,17,18}}, // second "block"
     };
 
+    cout << "Matrix is: \n";
+    for (int i=0; i<p; i++){
+        cout << "Block " << i << "\n";
+        for ( int j=0; j< n; j++){
+            for (int k=0; k<m; k++){
+                cout <<  matrix[i][j][k] << " ";
+            }
+            cout << "\n";
+        }
+    }
+
     vector<int> one_dim_vector = craete_vector_fits_matrix(n,m,p);
-    cout << "size of 1D vector: " << one_dim_vector.size() << "\n";
+    cout << "\nsize of 1D vector: " << one_dim_vector.size() << "\n";
     one_dim_vector = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
+
+    cout << "\n1D vector is: ";
+    for (int i=0; i< one_dim_vector.size(); i++){
+        cout << one_dim_vector[i] << " ";
+    }
+    cout << "\n\n";
     
     // we want to access second block, first row, second column
     // that is: k=1, i=0, j=1, element is --> 11
     int one_dim_index = access_one_dim_vector(0,1,1,n,m,p);
-    cout << "Element at i=0, j=1, k=1 is: " << one_dim_vector[one_dim_index] << "\n";
+    cout << "Algorithm test example \nElement at i=0, j=1, k=1 is: " << one_dim_vector[one_dim_index] << "\n";
     return 0;
 }
