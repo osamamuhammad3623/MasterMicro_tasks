@@ -12,7 +12,7 @@
   2. Convert the 3D matrix index (i, j, k) to a suitable 1D vector index (y). Must be O(1)
 
 ### Matrix illustration with indices directions:
-![Image](https://github.com/osamamuhammad3623/MasterMicro_tasks/blob/main/task3/matrix_illustration.jpg)
+![Image](matrix_illustration.jpg)
 
 ### How to store 3D matrix in a 1D vector (how my algorithm works):
 - Assume the matrix is a vector of 2D vectors, so I fill the first 2D vector, then the second 2D vector, so on
