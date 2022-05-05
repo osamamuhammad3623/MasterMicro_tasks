@@ -11,6 +11,8 @@ private:
     string component_id;
     string component_type;
 
+    float default_value, min_value, max_value;
+
 public:
     Component();
     ~Component();
@@ -21,6 +23,11 @@ public:
 
     void set_id(string id);
     string get_id();
+
+    void set_values(float default_v, float min_v, float max_v);
+    float get_default_value();
+    float get_min_value();
+    float get_max_value();
 };
 
 #endif /* _COMPONENT_H_v */
