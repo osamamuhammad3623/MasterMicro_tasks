@@ -10,28 +10,66 @@ Result Result::readJSON(string file_name){
     json json_object;
     json_file >> json_object;
 
-    /* define Result object, topology object and TobologyList */
+    /* define Result object, topology object */
     Result r;
     Topology topology;
-    TopologyList top_list;
 
-    /* set the id of the topology object to the id we got from json, and add the object to the list */
+    /* set the id of the topology object to the id we got from json */
+    /* no loops, assuming the topology JSON holds info about only one topology */
     topology.set_id(json_object["id"]);
-    top_list.push_back(topology);
-    r.topologies = top_list;
 
-    /* get the list of devices/components */
-    DeviceList dv_list;
+    /* get devices and adding them to the device list */
+    DeviceList dv;
     for (int i=0; i< json_object["components"].size(); i++){
         Component c;
         c.set_id(json_object["components"][i]["id"]);
         c.set_type(json_object["components"][i]["type"]);
-        dv_list.push_back(c);
+        dv.push_back(c);
     }
-    r.devices = dv_list; /* set the device list of the return object to the device list we created */
 
+    r.topology_device_vector.push_back(make_pair(topology, dv));
     return r;
 }
+
+Result Result::writeJSON(string TopologyID){
+    
+}
+
+TopologyList Result::queryTopologies(){
+    TopologyList list;
+    for (int i=0; i< this->topology_device_vector.size(); i++){
+        list.push_back(topology_device_vector[i].first);
+    }
+
+    return list;
+}
+
+DeviceList Result::queryDevices(string topology_id){
+    DeviceList dv_list;
+    for (int i=0; i< this->topology_device_vector.size(); i++){
+        if (topology_device_vector[i].first.get_id() == topology_id){
+            dv_list = topology_device_vector[i].second;
+            break;
+        }
+    }
+
+    return dv_list;
+}
+
+Result Result::deleteTopology(string topology_id){
+    Result updated_result; 
+    for (int i=0; i< this->topology_device_vector.size(); i++){
+        // if it the current id is not the one, add it to Result object
+        if (topology_device_vector[i].first.get_id() != topology_id){
+            updated_result.topology_device_vector.push_back(topology_device_vector[i]);
+        }else{
+            // ignore, do nothing
+        }
+    }
+
+    return updated_result;
+}
+
 
 
 Result::Result(){
