@@ -18,7 +18,9 @@ public:
     Topology();
     ~Topology();
 
-
+    /* setter and getter for id */
+    void set_id(string id);
+    string get_id();
 
 };
 
