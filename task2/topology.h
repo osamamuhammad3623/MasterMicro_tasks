@@ -18,10 +18,11 @@ public:
     Topology();
     ~Topology();
 
-    /* setter and getter for id */
     void set_id(string id);
     string get_id();
 
+    DeviceList get_devices();
+    void add_device(Component c);
 };
 
 #endif /* _TOPOLOGY_H_ */
