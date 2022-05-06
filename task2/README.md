@@ -8,6 +8,7 @@
 - Docs generation: Doxygen
 - Build tool: CMake
 - Version control: Git
+- Static code analysis: CppCheck
 
 ## General info
 - All APIs and classes are documented (auto generated and documentation comments).
