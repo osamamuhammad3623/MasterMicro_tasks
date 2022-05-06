@@ -15,3 +15,5 @@
 - Supports pointers, for better use of memory/resources.
 
 ## Screenshots
+### Running unit tests
+![unit test](sc/ex5_tests.png)
