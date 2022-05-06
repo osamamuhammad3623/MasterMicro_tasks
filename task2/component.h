@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include "json.hpp"
+using json = nlohmann::json;
 using namespace std;
 
 
@@ -10,7 +12,7 @@ class Component{
 private:
     string component_id;
     string component_type;
-    vector<pair<string,string>> netlist;
+    json netlist;
 
     float default_value, min_value, max_value;
 
@@ -30,8 +32,8 @@ public:
     float get_min_value();
     float get_max_value();
 
-    vector<pair<string,string>> get_netlist();
-    void set_netlist(vector<pair<string,string>>);
+    json get_netlist();
+    void set_netlist(json json_object);
 };
 
 #endif /* _COMPONENT_H_v */
