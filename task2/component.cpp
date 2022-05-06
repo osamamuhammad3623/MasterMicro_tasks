@@ -34,6 +34,14 @@ float Component::get_max_value(){
     return this->max_value;
 }
 
+vector<pair<string,string>> Component::get_netlist(){
+    return this->netlist;
+}
+
+void Component::set_netlist(vector<pair<string,string>> new_netlist){
+    this->netlist = new_netlist;
+}
+
 Component::Component(){
 
 }

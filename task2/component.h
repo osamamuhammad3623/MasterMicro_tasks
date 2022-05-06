@@ -10,6 +10,7 @@ class Component{
 private:
     string component_id;
     string component_type;
+    vector<pair<string,string>> netlist;
 
     float default_value, min_value, max_value;
 
@@ -28,6 +29,9 @@ public:
     float get_default_value();
     float get_min_value();
     float get_max_value();
+
+    vector<pair<string,string>> get_netlist();
+    void set_netlist(vector<pair<string,string>>);
 };
 
 #endif /* _COMPONENT_H_v */
