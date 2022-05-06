@@ -18,14 +18,12 @@ Topology API::readJSON(string file_name){
     /* set the id of the topology object to the id we got from json */
     /* no loops, assuming the topology JSON holds info about only one topology */
     topology.set_id(json_object["id"]);
-
     /* get devices and adding them to the device list */
     for (int i=0; i< json_object["components"].size(); i++){
         Component c;
         /* get component type & id */
         c.set_id(json_object["components"][i]["id"]);
         c.set_type(json_object["components"][i]["type"]);
-
         /* get component type info */
         if (json_object["components"][i]["type"] == "resistor"){
             float d, min_v, max_v;
@@ -43,7 +41,6 @@ Topology API::readJSON(string file_name){
         /* get component netlist info */
         json net_list = json_object["components"][i]["netlist"];
         c.set_netlist(net_list);
-        
         topology.add_device(c);
     }
 
@@ -76,10 +73,7 @@ bool API::writeJSON(string TopologyID){
                 json_object["components"][j]["netlist"] = current_c.get_netlist();
             }
 
-            cout << "What is the file name you want to give to the new topology? ";
-            string file_name;
-            cin >> file_name;
-            ofstream output_file(file_name);
+            ofstream output_file("output_json_file.json");
             output_file << json_object << "\n";
             return true;
         }
