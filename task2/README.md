@@ -19,9 +19,9 @@
 
 ## Screenshots
 ### Running unit tests
-![unit test](sc/ex5_tests.png)
+![unit test](screenshots/ex5_tests.png)
 ### Running code from CLI and trying some APIs
-![unit test](sc/ex1_read_write.png)
-![unit test](sc/ex2_delete.png)
-![unit test](sc/ex3_devices.png)
-![unit test](sc/ex4_nets.png)
+![unit test](screenshots/ex1_read_write.png)
+![unit test](screenshots/ex2_delete.png)
+![unit test](screenshots/ex3_devices.png)
+![unit test](screenshots/ex4_nets.png)
