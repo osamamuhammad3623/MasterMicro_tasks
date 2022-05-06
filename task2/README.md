@@ -9,7 +9,10 @@
 - Build tool: CMake
 - Version control: Git
 
-## Why did I use C++
+## General info
+- All APIs and classes are documented (auto generated and documentation comments).
+- API_Test class has the API unit tests.
+### Why did I use C++
 - C++ is way faster than other popular languages (like Java/ Python).
 - Supports OOP.
 - Supports pointers, for better use of memory/resources.
