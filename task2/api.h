@@ -11,7 +11,7 @@ class API{
 public:
     vector<pair<Topology, DeviceList>> topology_devices_vector;
 
-    bool readJSON(string file_name);
+    Topology readJSON(string file_name);
 
     bool writeJSON(string TopologyID);
 
