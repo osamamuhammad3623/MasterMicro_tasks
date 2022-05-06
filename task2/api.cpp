@@ -6,7 +6,7 @@ using namespace std;
 using json = nlohmann::json;
 
 
-Topology API::readJSON(string file_name){
+bool API::readJSON(string file_name){
     /* read json topology into json object */
     ifstream json_file(file_name);
     json json_object;
@@ -31,11 +31,13 @@ Topology API::readJSON(string file_name){
             min_v = json_object["components"][i]["resistance"]["min"];
             max_v = json_object["components"][i]["resistance"]["max"];
             c.set_values(d,min_v,max_v);
+
         }else if (json_object["components"][i]["type"] == "nmos"){
             float d, min_v, max_v;
             d = json_object["components"][i]["m(l)"]["default"];
             min_v = json_object["components"][i]["m(l)"]["min"];
             max_v = json_object["components"][i]["m(l)"]["max"];
+            c.set_values(d,min_v,max_v);
         }
 
         /* get component netlist info */
@@ -44,15 +46,17 @@ Topology API::readJSON(string file_name){
         topology.add_device(c);
     }
 
-    return topology;
+    /* save the loaded topology in memory before returning it */
+    this->topologies_vector.push_back(topology);
+    return true;
 }
 
 bool API::writeJSON(string TopologyID){
-    for (int i=0; i< this->topology_devices_vector.size(); i++){
-        if (this->topology_devices_vector[i].first.get_id() == TopologyID){
+    for (int i=0; i< this->topologies_vector.size(); i++){
+        if (this->topologies_vector[i].get_id() == TopologyID){
 
             json json_object;
-            Topology topo = topology_devices_vector[i].first;
+            Topology topo = topologies_vector[i];
 
             /* get complete info about the topology components */
             json_object["id"] = topo.get_id();
@@ -82,19 +86,14 @@ bool API::writeJSON(string TopologyID){
 }
 
 TopologyList API::queryTopologies(){
-    TopologyList list;
-    for (int i=0; i< this->topology_devices_vector.size(); i++){
-        list.push_back(topology_devices_vector[i].first);
-    }
-
-    return list;
+    return this->topologies_vector;
 }
 
 DeviceList API::queryDevices(string topology_id){
     DeviceList dv_list;
-    for (int i=0; i< this->topology_devices_vector.size(); i++){
-        if (topology_devices_vector[i].first.get_id() == topology_id){
-            dv_list = topology_devices_vector[i].second;
+    for (int i=0; i< this->topologies_vector.size(); i++){
+        if (topologies_vector[i].get_id() == topology_id){
+            dv_list = topologies_vector[i].get_devices();
             break;
         }
     }
@@ -104,13 +103,13 @@ DeviceList API::queryDevices(string topology_id){
 
 bool API::deleteTopology(string topology_id){
 
-    for (int i=0; i< this->topology_devices_vector.size(); i++){
-        if (topology_devices_vector[i].first.get_id() == topology_id){
+    for (int i=0; i< this->topologies_vector.size(); i++){
+        if (topologies_vector[i].get_id() == topology_id){
             /* if topology id found, replace it with the last item in the vector, then pop back */
             /* search in O(n) and delete in O(1) */
-            int last_index = topology_devices_vector.size()-1;
-            topology_devices_vector[i] = topology_devices_vector[last_index];
-            topology_devices_vector.pop_back();
+            int last_index = topologies_vector.size()-1;
+            topologies_vector[i] = topologies_vector[last_index];
+            topologies_vector.pop_back();
             return true;   
         }
     }
@@ -119,17 +118,17 @@ bool API::deleteTopology(string topology_id){
 }
 
 DeviceList API::queryDevicesWithNetlistNode(string TopologyID, string NetlistNodeID){
-    for (int i=0; i< this->topology_devices_vector.size(); i++){
-        if (topology_devices_vector[i].first.get_id() == TopologyID){
-            DeviceList dv;
-            Topology topo = topology_devices_vector[i].first;
+    DeviceList dv = {};
+    for (int i=0; i< this->topologies_vector.size(); i++){
+        if (topologies_vector[i].get_id() == TopologyID){
+            Topology topo = topologies_vector[i];
             
             for (int j=0; j<topo.get_devices().size(); j++){
                 Component current_component = topo.get_devices()[j];
-                vector<pair<string,string>> current_netlist = current_component.get_netlist();
+                json current_netlist = current_component.get_netlist();
 
                 for (auto it: current_netlist){
-                    if (it.second == NetlistNodeID){
+                    if (it == NetlistNodeID){
                         dv.push_back(current_component);
                     }
                 }
@@ -139,7 +138,7 @@ DeviceList API::queryDevicesWithNetlistNode(string TopologyID, string NetlistNod
     }
 
     // if not found, just return empty DeviceList 
-    return DeviceList();
+    return dv;
 }
 
 API::API(){

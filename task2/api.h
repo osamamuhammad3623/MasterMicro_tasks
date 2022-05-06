@@ -9,9 +9,9 @@ typedef vector<Topology> TopologyList;
 
 class API{
 public:
-    vector<pair<Topology, DeviceList>> topology_devices_vector;
+    vector<Topology> topologies_vector;
 
-    Topology readJSON(string file_name);
+    bool readJSON(string file_name);
 
     bool writeJSON(string TopologyID);
 
