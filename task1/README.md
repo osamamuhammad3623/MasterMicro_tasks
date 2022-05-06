@@ -7,10 +7,10 @@
 
 ## Screenshots of Valid/Invalid examples:
 ### Valid Examples
-![ex1](sc/working_ex1.png)
-![ex2](sc/working_ex2.png)
-![ex3](sc/working_ex3.png)
+![ex1](screenshots/working_ex1.png)
+![ex2](screenshots/working_ex2.png)
+![ex3](screenshots/working_ex3.png)
 
 ### Invalid Examples
-![ex1](sc/wrong_ex1.png)
-![ex1](sc/wrong_ex2.png)
+![ex1](screenshots/wrong_ex1.png)
+![ex1](screenshots/wrong_ex2.png)
