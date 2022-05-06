@@ -21,7 +21,14 @@ public:
     void set_id(string id);
     string get_id();
 
+    /**
+     *  Description: A function that return the list of components in the topology
+    */
     DeviceList get_devices();
+
+    /**
+     *  Description: A function to add (connect) a component to the topology
+    */
     void add_device(Component c);
 };
 

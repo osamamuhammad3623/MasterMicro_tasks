@@ -32,7 +32,14 @@ public:
     float get_min_value();
     float get_max_value();
 
+    /**
+     *  Description: A function that returns netlist of a component in form of JSON object.
+    */
     json get_netlist();
+
+    /**
+     *  Description: A function to set netlist of a component.
+    */
     void set_netlist(json json_object);
 };
 
