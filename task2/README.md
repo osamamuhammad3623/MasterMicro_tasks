@@ -11,4 +11,4 @@
 ## Why did I use C++
 - C++ is way faster than other popular languages (like Java/ Python).
 - Supports OOP.
-- Supports Pointers (well, it's a good thing from my point of view :D)
+- Supports pointers, for better use of memory/resources.
